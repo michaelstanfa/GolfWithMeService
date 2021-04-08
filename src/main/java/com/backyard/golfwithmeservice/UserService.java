@@ -1,12 +1,12 @@
 
 package com.backyard.golfwithmeservice;
 
-import com.backyard.golfwithmeservice.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.UUID;
 
 /**
  * User: Quinten
@@ -27,7 +27,12 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    public void addUser(User user) {
+    public User addUser(User user) {
         userRepository.save(user);
+        return user;
+    }
+
+    public User getUserById(UUID id) {
+        return userRepository.findById(id).get();
     }
 }

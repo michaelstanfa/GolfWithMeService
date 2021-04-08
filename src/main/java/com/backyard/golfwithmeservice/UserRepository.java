@@ -1,11 +1,13 @@
 package com.backyard.golfwithmeservice;
 
-import com.backyard.golfwithmeservice.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
-public interface UserRepository extends JpaRepository<User, Long> {
+import java.util.UUID;
 
-    User findUserById(@Param("id") Long id);
+@Repository
+@Component
+public interface UserRepository extends JpaRepository<User, UUID> {
 
 }
