@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
+import java.util.concurrent.ExecutionException;
 
 @RestController
 public class GolfWithMeServiceController {
@@ -52,6 +53,20 @@ public class GolfWithMeServiceController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(map);
         }
         return ResponseEntity.ok(userService.addUser(user));
+    }
+
+    @PostMapping(
+            value = "/userfb",
+            consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    @PermitAll
+    public ResponseEntity<?> createUserFb(@RequestBody User user) throws ExecutionException, InterruptedException {
+        if(getUsers().contains(user)) {
+            Map map = new HashMap<>();
+            map.put("error", "Username or email already in use, try again.");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(map);
+        }
+        return ResponseEntity.ok(userService.addUserViaFirebase(user));
     }
 
 }

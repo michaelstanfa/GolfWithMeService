@@ -12,26 +12,29 @@ import java.util.UUID;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID id;
+    private String id;
     private String firstName;
     private String lastName;
     private String email;
-
     private String userName;
 
     private User() {
         //default empty constructor? really?
     }
 
-    public User(String firstName, String lastName, String email) {
+    public User(String firstName, String lastName, String email, String userName) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
+        this.userName = userName;
     }
 
-    public UUID getId(){
+    public String getId(){
         return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getFirstName() {
