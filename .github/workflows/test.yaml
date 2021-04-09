@@ -45,7 +45,7 @@ jobs:
           java-version: '11'
           distribution: 'adopt'
 
-      -name: run mvn batch
+      - name: run mvn batch
         run: mvn --batch-mode --update-snapshots verify
 
   build:
