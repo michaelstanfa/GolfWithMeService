@@ -58,7 +58,7 @@ jobs:
           heroku_app_name: "golfwithmeservice-test" #Must be unique in Heroku
           email: "stanfa.michael@gmail.com"
           process_type: web
-          
+
 #
 #  build:
 #    runs-on: ubuntu-latest
