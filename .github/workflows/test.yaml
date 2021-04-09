@@ -11,6 +11,8 @@ on:
 jobs:
   clean:
     runs-on: ubuntu-latest
+    env:
+      GOOGLE_APPLICATION_CREDENTIALS: .\src\main\resources\golfwithmeservice-firebase.json
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-java@v2
