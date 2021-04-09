@@ -2,9 +2,10 @@
 FROM maven
 WORKDIR application
 COPY pom.xml .
-RUN mvn -B -e -C -T 1C org.apache.maven.plugins:maven-dependency-plugin:3.1.1:go-offline
-COPY . .
-RUN mvn -B -e -o -T 1C verify
+RUN mvn clean package
+#RUN mvn -B -e -C -T 1C org.apache.maven.plugins:maven-dependency-plugin:3.1.1:go-offline
+#COPY . .
+#RUN mvn -B -e -o -T 1C verify
 
 FROM adoptopenjdk as builder
 WORKDIR application
