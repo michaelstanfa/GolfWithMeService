@@ -22,7 +22,7 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
-    depends_on: clean
+    needs: clean
     steps:
       - name: Checkout
         uses: actions/checkout@v2
