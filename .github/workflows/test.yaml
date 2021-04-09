@@ -28,25 +28,28 @@ jobs:
 #    needs: export
 
     steps:
-#      - name: Set up Cloud SDK
-#        uses: google-github-actions/setup-gcloud@master
-#        with:
-#          project_id: ${{ secrets.GCP_PROJECT_ID }}
-#          service_account_key: ${{ secrets.GCP_SA_KEY }}
-#          export_default_credentials: true
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@master
+        with:
+          project_id: ${{ secrets.GCP_PROJECT_ID }}
+          service_account_key: ${{ secrets.GCP_SA_KEY }}
+          export_default_credentials: true
 
       - name: Use gcloud CLI
         run: gcloud info
 
-      - uses: actions/checkout@v2
+      - name: echo gcp credentials
+        run: echo this is ${GOOGLE_APPLICATION_CREDENTIALS}
+
+      -uses: actions/checkout@v2
+
+#      - uses: actions/checkout@v2
       - uses: actions/setup-java@v2
         with:
-          java-version: '11'
-          distribution: 'adopt'
+          java-version: '8'
+
       - name: Run the Maven Package Phase
-        run: mvn --batch-mode --update-snapshots verify
-        env:
-          GOOGLE_APPLICATION_CREDENTIALS: ${{secrets.GOOGLE_APPLICATION_CREDENTIALS}}
+        run: mvn clean install --file pom.xml #mvn --batch-mode --update-snapshots verify
 
   build:
     runs-on: ubuntu-latest
