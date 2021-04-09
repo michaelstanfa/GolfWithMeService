@@ -18,10 +18,7 @@ jobs:
           java-version: '11'
           distribution: 'adopt'
       - name: Run the Maven verify phase
-        run: mvn clean package -q
-        with:
-          GOOGLE_APPLICATION_CREDENTIALS: .\src\main\resources\golfwithmeservice-firebase.json
-
+        run: mvn clean package -q --env -DGOOGLE_APPLICATION_CREDENTIALS=.\src\main\resources\golfwithmeservice-firebase.json
 
   build:
     runs-on: ubuntu-latest
