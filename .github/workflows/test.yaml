@@ -28,7 +28,7 @@ jobs:
   clean:
     runs-on: ubuntu-latest
     env:
-      GOOGLE_APPLICATION_CREDENTIALS: {{ secrets.GOOGLE_APPLICATION_CREDENTIALS_JSON }}
+      GOOGLE_APPLICATION_CREDENTIALS: ${GOOGLE_APPLICATION_CREDENTIALS}
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-java@v2
