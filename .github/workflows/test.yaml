@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v2
       - name: Build, Deploy, Push to heroku
         id: heroku
-        uses: gonuit/heroku-docker-deploy@v1.3.2 #action to build a
+        uses: gonuit/heroku-docker-deploy@v1.3.3 #action to build a
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "golfwithmeservice-test" #Must be unique in Heroku
