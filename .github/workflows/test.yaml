@@ -45,6 +45,8 @@ jobs:
           distribution: 'adopt'
       - name: Run the Maven Package Phase
         run: mvn --batch-mode --update-snapshots verify
+        env:
+          GOOGLE_APPLICATION_CREDENTIALS: ${{secrets.GOOGLE_APPLICATION_CREDENTIALS}}
 
   build:
     runs-on: ubuntu-latest
