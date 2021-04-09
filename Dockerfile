@@ -1,6 +1,6 @@
 FROM adoptopenjdk as builder
 WORKDIR application
-COPY target/*.jar application.jar
+COPY ./src/main/resources/application.properties application.jar
 RUN java -Djarmode=layertools -jar application.jar extract
 
 FROM adoptopenjdk
