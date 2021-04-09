@@ -49,7 +49,7 @@ jobs:
           java-version: '11'
           distribution: 'adopt'
       - name: Run the Maven Package Phase
-        run: mvn clean install -f pom.xml //mvn --batch-mode --update-snapshots verify
+        run: mvn clean install -f pom.xml #mvn --batch-mode --update-snapshots verify
 
   build:
     runs-on: ubuntu-latest
