@@ -44,12 +44,12 @@ jobs:
       - uses: actions/checkout@v2
 
 #      - uses: actions/checkout@v2
-      - uses: actions/setup-java@v1
+      - uses: actions/setup-java@v2
         with:
-          java-version: '8'
-
+          java-version: '11'
+          distribution: 'adopt'
       - name: Run the Maven Package Phase
-        run: mvn clean install --file pom.xml #mvn --batch-mode --update-snapshots verify
+        run: mvn clean install -f pom.xml //mvn --batch-mode --update-snapshots verify
 
   build:
     runs-on: ubuntu-latest
