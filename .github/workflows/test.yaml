@@ -10,22 +10,21 @@ on:
 
 jobs:
 
-  export:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Set up Cloud SDK
-        uses: google-github-actions/setup-gcloud@master
-        with:
-          project_id: ${{ secrets.GCP_PROJECT_ID }}
-          service_account_key: ${{ secrets.GCP_SA_KEY }}
-          export_default_credentials: true
-
-      - name: Use gcloud CLI
-        run: gcloud info
+#  export:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Set up Cloud SDK
+#        uses: google-github-actions/setup-gcloud@master
+#        with:
+#          project_id: ${{ secrets.GCP_PROJECT_ID }}
+#          service_account_key: ${{ secrets.GCP_SA_KEY }}
+#          export_default_credentials: true
+#
+#      - name: Use gcloud CLI
+#        run: gcloud info
 
   clean:
     runs-on: ubuntu-latest
-
     steps:
       - name: Set up Cloud SDK
       - uses: google-github-actions/setup-gcloud@master
@@ -33,7 +32,9 @@ jobs:
           project_id: ${{ secrets.GCP_PROJECT_ID }}
           service_account_key: ${{ secrets.GCP_SA_KEY }}
           export_default_credentials: true
-      - run: gcloud info
+
+      - name: Use gcloud CLI
+        run: gcloud info
 
 #      - name: Run the Maven Package Phase
 #      - uses: actions/checkout@v2
