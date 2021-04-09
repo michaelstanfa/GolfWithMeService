@@ -15,11 +15,12 @@ import org.springframework.context.annotation.Bean;
 public class GolfWithMeServiceApplication {
 
 	@Bean
-	public static Firestore firestore() {
+	public Firestore firestore() {
 		try {
 
 			// Use the application default credentials
 			GoogleCredentials credentials = GoogleCredentials.getApplicationDefault();
+
 			FirebaseOptions options = new FirebaseOptions.Builder()
 					.setCredentials(credentials)
 					.setProjectId("golfwithmeservice")

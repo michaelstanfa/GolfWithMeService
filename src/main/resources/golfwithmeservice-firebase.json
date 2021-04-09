@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "golfwithmeservice",
+  "private_key_id": "c7d31563b82a91093d413e43f99e5ee607c56af8",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDVrzqvRoCp2ak1\n73VnpvIx/81zic+O0EsofFshCNQBb67LlwNVsX7jB9awyPlkPKL5J+J3YMkU8t9z\nVYYaJerbdFdC62A18OC8Vk02cI/hkVvIenaL6sHBYnR0LeuT1kQ20+KD1ZacQ+Oi\nWpACPPO1jbPpuSjN+u8WbEl9LR+klo1wY5/HgW7iVJt19Kc4VfMBHcD1SF6GmYwc\nPbyzMFxhmtRTIikF6eLaZ/yJRQtmtHYEnw4duSCHEbaeCKjieZbjOAmdmhE8/Lb8\nPO2UsK0OJiUS4T8+4K1TBA20kCjrcuYUZo2JMZmB2Ab9YuYahQi3LeGpzbZQXBL1\n9SMNmk2PAgMBAAECggEAFFvRl4l8ELKwMHdUFEAPqzvX8z4aDF1EC+NtO0SADnL5\nkGQe6Tc0A6Vniwha2nX8gQiPxxftkJVjPLXVRQB/09DNz45laD4+6zK9wIYQ70jO\nGdexG7uOIkKjHb6SR0+OyDp/xle/NbwyH/HI7q2n+pA5p/cAMD/ML7K5fbei4Cdb\nWBH0btzrF4kaJH344kXVoZiG+n0uIA85VPM+IFs+Q/vplS39M7ziOwOaIM2yP1dR\n8L820VTKmNfrIahwxI0AszrO8rn/9DNobPXXurbCydu1ij+Z/mKi5040KEc/1GaO\ny/UAbXLV1jdIeJcjbyK1Ro+pz00R6xFHLFtsWehEoQKBgQDtFF54td+J5M5ZNyZt\n9ZcBEVoeU9eG5Vje64WGzK9aImJpc7CWgUh0DYkgPpLizWMobkF5lp08wRW+I4Vk\nAN6r9iwMPrsZoU173LHtTrXUWaUorssJzK9vr0UOejoLozLbYP65Wwscesp2Pwwv\n9Q/6W8nBYul3FskrgJb1M31pEwKBgQDmvOOtL2yt3lti+r3ud8UEU+DNo2b6Lrok\nPsy/grzCpcshhW018+Y7JTCl/fPL5dcSi6iLfE0Xh4/lt92IPlroSt+fAlZpVQcb\nnuBAX6AYJY9HQe2xBMe80nCg09zAeVn8fnFTLYZKzR2w5GbyPXofhlHoO3UrtBzl\n6lsIu+l1FQKBgQDOo2xcRhmatQVuGXWzbdW6Joen22gFua0mT55Iietk4odoZl/K\nLtEZ5hpZMnEQofgFa2RCOBbAt4LeAVPogCGVPLHT0nF9u2wvw4KJ1osBlUkxFnj+\nB5v5+oh0P/CL6CkRsY8Tu9kJb7U8L2POAQl2K77EghP/qqqY8jGhcsmiZQKBgQDJ\nEnw51KUZkzcCN03CfP7keY/iw+2eQZAWu99DWNPTsBUnXhXAuY29pvgQ/xAwdFeL\nIsc63pRz17+vSR41d1lTKsRa1feljOJH0JjNoEdsI3cLesl+xJKm2qAplta9qEKh\nxTJOcNKhZsPj/fY0TRyaUjwYa4/9CNVSCntQTijwzQKBgE3rBX3BCoBg/T33vkDk\nru+QvqTGm3d0aLsBpXvdHvZKqRWwNukLoz2GxAtXeLCnh3S1Z8GQrPYEfsZY2FzH\nOen6Ao9rxV+FJcGSVlOr34ibNQX2HUk+VslJxtCAT1DApaBvMN9RNWyt7pQNpTeN\nXKmWYQvJPILd6+LIrwrHv2P2\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-e3frn@golfwithmeservice.iam.gserviceaccount.com",
+  "client_id": "116036931629834653158",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-e3frn%40golfwithmeservice.iam.gserviceaccount.com"
+}

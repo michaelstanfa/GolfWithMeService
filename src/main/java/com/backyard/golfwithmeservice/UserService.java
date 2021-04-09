@@ -1,10 +1,9 @@
 
 package com.backyard.golfwithmeservice;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.api.core.ApiFuture;
-import com.google.cloud.firestore.DocumentReference;
-import com.google.cloud.firestore.Firestore;
-import com.google.cloud.firestore.WriteResult;
+import com.google.cloud.firestore.*;
 import com.google.firestore.v1.Document;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.ExecutionException;
+import java.util.stream.Collectors;
 
 /**
  * User: Quinten
@@ -25,6 +25,8 @@ import java.util.concurrent.ExecutionException;
 @Transactional
 public class UserService {
 
+    @Autowired
+    private ObjectMapper objectMapper;
 
     @Autowired
     private Firestore db;
@@ -53,5 +55,43 @@ public class UserService {
         user.setId(doc.getId());
         ApiFuture<WriteResult> future = doc.set(user);
         return user;
+    }
+
+    public User getUserViaFirebaseWithId(String id) throws ExecutionException, InterruptedException {
+
+        DocumentReference doc = db.collection("users").document(id);
+        ApiFuture<DocumentSnapshot> future = doc.get();
+        DocumentSnapshot document = future.get();
+        if(document.exists()) {
+            return objectMapper.convertValue(document.getData(), User.class);
+        }
+
+        return null;
+
+    }
+    public List<User> getUsersViaFirebase() throws ExecutionException, InterruptedException {
+
+        return getAllUsersFromFb()
+                .stream()
+                .map(d -> objectMapper.convertValue(d.getData(), User.class))
+                .collect(Collectors.toList());
+
+    }
+
+    public void deleteAllUsersViaFb() throws ExecutionException, InterruptedException {
+
+        getAllUsersFromFb()
+                .stream()
+                .forEach(
+                    d -> d.getReference().delete()
+                );
+
+    }
+
+    private List<QueryDocumentSnapshot> getAllUsersFromFb() throws InterruptedException, ExecutionException {
+        return db.collection("users")
+                .get()
+                .get()
+                .getDocuments();
     }
 }

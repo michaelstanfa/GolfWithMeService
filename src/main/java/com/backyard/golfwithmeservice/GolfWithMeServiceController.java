@@ -69,4 +69,46 @@ public class GolfWithMeServiceController {
         return ResponseEntity.ok(userService.addUserViaFirebase(user));
     }
 
+    @GetMapping(
+            value = "/userfb/{id}",
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    @PermitAll
+    public ResponseEntity<?> getUserFb(@PathVariable String id) throws ExecutionException, InterruptedException {
+
+        User user = userService.getUserViaFirebaseWithId(id);
+        if(null != user) {
+            return ResponseEntity.ok(user);
+        }
+        return ResponseEntity.notFound().build();
+
+    }
+
+    @GetMapping(
+            value = "/usersfb",
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    @PermitAll
+    public ResponseEntity<?> getUserFb() throws ExecutionException, InterruptedException {
+
+        List<User> users = userService.getUsersViaFirebase();
+
+        return ResponseEntity.ok(users);
+
+    }
+
+    @DeleteMapping(
+            value = "/usersfb",
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    @PermitAll
+    public ResponseEntity<?> deleteUsersFb() throws ExecutionException, InterruptedException {
+        try {
+            userService.deleteAllUsersViaFb();
+            return ResponseEntity.ok().build();
+        } catch (Exception e) {
+            System.out.println("Issue deleting users: " + e);
+            throw new RuntimeException(e);
+        }
+
+    }
+
+
 }
