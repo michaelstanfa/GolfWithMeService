@@ -1,4 +1,4 @@
-name: Deploy to Test
+name: Deploy to Test Heroku
 
 on:
   push:
@@ -12,9 +12,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Build, Deploy, Push to heroku
+        id: heroku
+        uses: jctavaras/heroku-deploy@v1.0.0 #action to build a
+#        uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "golfwithmeservice-test" #Must be unique in Heroku
           heroku_email: "stanfa.michael@gmail.com"
+          dockerfile_path: /
