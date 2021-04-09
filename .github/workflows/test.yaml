@@ -19,7 +19,7 @@ jobs:
         uses: jctaveras/heroku-deploy@v1.0.0 #action to build a
 #        uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
         with:
-          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "golfwithmeservice-test" #Must be unique in Heroku
-          heroku_email: "stanfa.michael@gmail.com"
+          api_key: ${{secrets.HEROKU_API_KEY}}
+          app_name: "golfwithmeservice-test" #Must be unique in Heroku
+          email: "stanfa.michael@gmail.com"
           dockerfile_path: /
