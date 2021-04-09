@@ -16,14 +16,11 @@ jobs:
       - uses: actions/checkout@v2
       - uses: google-github-actions/setup-gcloud@v0.2.0
         with:
-          version: '270.0.0'
           service_account_email: ${{ secrets.GCP_SA_STG_EMAIL }}
           service_account_key: ${{ secrets.GCP_SA_STG_KEY }}
           export_default_credentials: true
       - name: set gcp credentials
         run:  gcloud info
-      - name: echo gcp credentials
-        run:  echo this is ${GOOGLE_APPLICATION_CREDENTIALS}
 
   clean:
     runs-on: ubuntu-latest
