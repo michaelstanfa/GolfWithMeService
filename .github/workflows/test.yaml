@@ -10,8 +10,9 @@ on:
 
 jobs:
 
-  export_credentials:
+  export:
     runs-on: ubuntu-latest
+    steps:
       - uses: actions/checkout@v1
       - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
         with:
@@ -37,7 +38,7 @@ jobs:
       - name: Run the Maven Package Phase
         run: mvn --batch-mode --update-snapshots verify
 
-  build:F
+  build:
     runs-on: ubuntu-latest
     needs: clean
     steps:
