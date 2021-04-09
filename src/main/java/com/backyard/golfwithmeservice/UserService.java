@@ -50,11 +50,24 @@ public class UserService {
 
     public User addUserViaFirebase(User user) throws ExecutionException, InterruptedException {
 
-//        ApiFuture<WriteResult> future = db.collection("users").document().set(user);
         DocumentReference doc = db.collection("users").document();
         user.setId(doc.getId());
         ApiFuture<WriteResult> future = doc.set(user);
         return user;
+    }
+
+    public User getUserViaFirebaseWithIdOrName(String idOrName) throws ExecutionException, InterruptedException {
+
+        User user = null;
+
+        if(20 == idOrName.length()) {
+            user = getUserViaFirebaseWithId(idOrName);
+        } else {
+            user = getUserViaFirebaseWithUsername(idOrName);
+        }
+
+        return user;
+
     }
 
     public User getUserViaFirebaseWithId(String id) throws ExecutionException, InterruptedException {
@@ -69,6 +82,23 @@ public class UserService {
         return null;
 
     }
+
+    public User getUserViaFirebaseWithUsername(String userName) throws ExecutionException, InterruptedException {
+
+        CollectionReference users = db.collection("users");
+
+        Query query = users.whereEqualTo("userName", userName);
+
+        DocumentSnapshot document = query.get().get().getDocuments().get(0);
+
+        if(document.exists()) {
+            return objectMapper.convertValue(document.getData(), User.class);
+        }
+
+        return null;
+
+    }
+
     public List<User> getUsersViaFirebase() throws ExecutionException, InterruptedException {
 
         return getAllUsersFromFb()

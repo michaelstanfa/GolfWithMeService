@@ -35,12 +35,6 @@ public class GolfWithMeServiceController {
         return userService.getAllUsers() ;
     }
 
-    @GetMapping(value = "/user/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    @PermitAll
-    public User getUsers(@PathVariable UUID id) {
-        return userService.getUserById(id) ;
-    }
-
     @PostMapping(
         value = "/user",
         consumes = MediaType.APPLICATION_JSON_VALUE,
@@ -70,12 +64,12 @@ public class GolfWithMeServiceController {
     }
 
     @GetMapping(
-            value = "/userfb/{id}",
+            value = "/user/{idOrName}",
             produces = MediaType.APPLICATION_JSON_VALUE)
     @PermitAll
-    public ResponseEntity<?> getUserFb(@PathVariable String id) throws ExecutionException, InterruptedException {
+    public ResponseEntity<?> getUserByIdOrName(@PathVariable String idOrName) throws ExecutionException, InterruptedException {
 
-        User user = userService.getUserViaFirebaseWithId(id);
+        User user = userService.getUserViaFirebaseWithIdOrName(idOrName);
         if(null != user) {
             return ResponseEntity.ok(user);
         }
