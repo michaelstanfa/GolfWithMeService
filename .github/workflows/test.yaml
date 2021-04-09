@@ -25,6 +25,7 @@ jobs:
 
   clean:
     runs-on: ubuntu-latest
+
     steps:
       - name: Set up Cloud SDK
       - uses: actions/checkout@v2
@@ -33,8 +34,9 @@ jobs:
           project_id: ${{ secrets.GCP_PROJECT_ID }}
           service_account_key: ${{ secrets.GCP_SA_KEY }}
           export_default_credentials: true
-          
-      run: gcloud info
+
+      - name: Use gcloud CLI
+        run: gcloud info
 
       - name: Run the Maven Package Phase
       - uses: actions/checkout@v2
@@ -42,7 +44,9 @@ jobs:
         with:
           java-version: '11'
           distribution: 'adopt'
-      run: mvn --batch-mode --update-snapshots verify
+
+      -name: run mvn batch
+        run: mvn --batch-mode --update-snapshots verify
 
   build:
     runs-on: ubuntu-latest
