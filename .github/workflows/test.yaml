@@ -47,10 +47,6 @@ jobs:
         shell: bash
         run: test -f $GOOGLE_APPLICATION_CREDENTIALS
 
-      - name: print github workspace
-        shell: bash
-        run: test -f $GITHUB_WORKSPACE
-
       - uses: actions/setup-java@v2
         with:
           java-version: '11'
@@ -65,6 +61,7 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "golfwithmeservice-test" #Must be unique in Heroku
           email: "stanfa.michael@gmail.com"
+          docker_options: "GOOGLE_APPLICATION_CREDENTIALS ${{env.GOOGLE_APPLICATIOn_CREDENTIALS}}"
           process_type: web
 
 #
