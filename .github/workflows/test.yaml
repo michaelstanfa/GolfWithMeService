@@ -39,6 +39,7 @@ jobs:
           project_id: ${{ secrets.GCP_PROJECT_ID }}
           service_account_key: ${{ secrets.GCP_SA_KEY }}
           export_default_credentials: true
+          credentials_file_path:
 
       - name: Use gcloud CLI
         run: gcloud info
@@ -52,7 +53,7 @@ jobs:
           java-version: '11'
           distribution: 'adopt'
       - name: Run the Maven Package Phase
-        run: mvn clean install -f pom.xml -f $GOOGLE_APPLICATION_CREDENTIALS #mvn --batch-mode --update-snapshots verify
+        run: mvn clean install -f pom.xml #mvn --batch-mode --update-snapshots verify
 
       - name: Build, Deploy, Push to heroku
         id: heroku
@@ -61,6 +62,7 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "golfwithmeservice-test" #Must be unique in Heroku
           email: "stanfa.michael@gmail.com"
+          docker_options: "-e GOOGLE_APPLICATION_CREDENTIALS" {$GOOGLE_APPLIATION_CREDENTIALS}
           process_type: web
 
 #
