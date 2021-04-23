@@ -6,7 +6,7 @@ RUN java -Djarmode=layertools -jar application.jar extract
 
 FROM adoptopenjdk
 WORKDIR application
-ARG GAC=/home/runner/work/GolfWithMeService/GolfWithMeService/*
+ARG GAC=/home/runner/work/GolfWithMeService/GolfWithMeService/*/
 COPY --from=builder application/dependencies/ ./
 RUN true
 COPY --from=builder application/snapshot-dependencies/ ./
@@ -14,5 +14,5 @@ RUN true
 COPY --from=builder application/spring-boot-loader/ ./
 RUN true
 COPY --from=builder application/application/ ./
-ENV GOOGLE_APPLICATION_CREDENTIALS ${GAC}
+ENV GOOGLE_APPLICATION_CREDENTIALS "./creds/gac.json"
 ENTRYPOINT ["java", "org.springframework.boot.loader.JarLauncher"]
