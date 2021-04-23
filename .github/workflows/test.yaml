@@ -61,7 +61,7 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "golfwithmeservice-test" #Must be unique in Heroku
           email: "stanfa.michael@gmail.com"
-          docker_options: "--env GOOGLE_APPLICATION_CREDENTIALS ${{env.GOOGLE_APPLICATION_CREDENTIALS}}"
+          docker_options: "-env GOOGLE_APPLICATION_CREDENTIALS ${{env.GOOGLE_APPLICATION_CREDENTIALS}}"
           process_type: web
 
 #
