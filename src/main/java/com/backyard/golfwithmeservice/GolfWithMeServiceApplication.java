@@ -14,7 +14,8 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication
 public class GolfWithMeServiceApplication {
 
-	public Firestore firestore() {
+	@Bean
+	public Firestore db() {
 		try {
 
 			// Use the application default credentials
