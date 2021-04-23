@@ -45,7 +45,11 @@ jobs:
 
       - name: Verify Exported
         shell: bash
-        run: test -f $GOOGLE_APPLICATION_CREDENTIALS
+        run: test -f $GITHUB_WORKSPACE
+
+      - name: print github workspace
+        shell: bash
+        run:
 
       - uses: actions/setup-java@v2
         with:
