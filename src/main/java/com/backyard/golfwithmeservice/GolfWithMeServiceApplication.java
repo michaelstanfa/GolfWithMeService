@@ -14,7 +14,6 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication
 public class GolfWithMeServiceApplication {
 
-	@Bean
 	public Firestore firestore() {
 		try {
 
