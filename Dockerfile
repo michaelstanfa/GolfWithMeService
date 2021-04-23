@@ -13,5 +13,5 @@ RUN true
 COPY --from=builder application/spring-boot-loader/ ./
 RUN true
 COPY --from=builder application/application/ ./
-ENV GOOGLE_APPLICATION_CREDENTIALS BOOT-INF/classes/golfwithmeservice-firebase.json
+#ENV GOOGLE_APPLICATION_CREDENTIALS BOOT-INF/classes/golfwithmeservice-firebase.json
 ENTRYPOINT ["java", "org.springframework.boot.loader.JarLauncher"]
