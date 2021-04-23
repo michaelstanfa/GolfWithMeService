@@ -35,6 +35,7 @@ jobs:
       - name: Set up Cloud SDK
         uses: google-github-actions/setup-gcloud@master
         with:
+          version: 'latest'
           project_id: ${{ secrets.GCP_PROJECT_ID }}
           service_account_key: ${{ secrets.GCP_SA_KEY }}
           export_default_credentials: true
@@ -42,8 +43,9 @@ jobs:
       - name: Use gcloud CLI
         run: gcloud info
 
-#      - name: echo gcp credentials
-#        run: echo this is ${GOOGLE_APPLICATION_CREDENTIALS}
+      - name: Verify Exported
+        shell: bash
+        run: test -f $GOOGLE_APPLICATION_CREDENTIALS
 
       - uses: actions/setup-java@v2
         with:
