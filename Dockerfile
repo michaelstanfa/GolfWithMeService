@@ -13,4 +13,5 @@ RUN true
 COPY --from=builder application/spring-boot-loader/ ./
 RUN true
 COPY --from=builder application/application/ ./
+CMD echo $GOOGLE_APPLICATION_CREDENTIALS
 ENTRYPOINT ["java", "org.springframework.boot.loader.JarLauncher"]

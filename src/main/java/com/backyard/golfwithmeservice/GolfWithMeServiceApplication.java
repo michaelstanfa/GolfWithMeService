@@ -21,6 +21,8 @@ public class GolfWithMeServiceApplication {
 			// Use the application default credentials
 			GoogleCredentials credentials = GoogleCredentials.getApplicationDefault();
 
+			GoogleCredentials creds = GoogleCredentials.getApplicationDefault();
+
 			FirebaseOptions options = new FirebaseOptions.Builder()
 					.setCredentials(credentials)
 					.setProjectId("golfwithmeservice")
