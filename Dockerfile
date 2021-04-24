@@ -8,9 +8,13 @@ RUN java -Djarmode=layertools -jar application.jar extract
 FROM adoptopenjdk
 WORKDIR application
 COPY --from=builder application/dependencies/ ./
+RUN true
 COPY --from=builder application/snapshot-dependencies/ ./
+RUN true
 COPY --from=builder application/spring-boot-loader/ ./
+RUN true
 COPY --from=builder application/application/ ./
+RUN true
 COPY --from=builder application/gac.json/ ./
-ENV GOOGLE_APPLICATION_CREDENTIALS gac.json
+RUN true
 ENTRYPOINT ["java", "org.springframework.boot.loader.JarLauncher"]
