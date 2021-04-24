@@ -51,8 +51,8 @@ jobs:
 #        with:
 #          java-version: '11'
 #          distribution: 'adopt'
-#      - name: Run the Maven Package Phase
-#        run: mvn clean install -f pom.xml #mvn --batch-mode --update-snapshots verify
+      - name: Run the Maven Package Phase
+        run: mvn clean install -f pom.xml #mvn --batch-mode --update-snapshots verify
 
       - name: Build, Deploy, Push to heroku
         id: heroku
