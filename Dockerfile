@@ -13,4 +13,5 @@ RUN true
 COPY --from=builder application/spring-boot-loader/ ./
 RUN true
 COPY --from=builder application/application/ ./
+ENV GOOGLE_APPLICATION_CREDENTIALS ${GITHUB_WORKSPACE}
 ENTRYPOINT ["java", "org.springframework.boot.loader.JarLauncher"]
