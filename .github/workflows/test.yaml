@@ -54,6 +54,10 @@ jobs:
       - name: Run the Maven Package Phase
         run: mvn clean install -f pom.xml #mvn --batch-mode --update-snapshots verify
 
+      - name: figure out what files are available
+        shell: bash
+        run: ls -r
+
       - name: Build, Deploy, Push to heroku
         id: heroku
         uses: gonuit/heroku-docker-deploy@v1.3.3 #action to build a
