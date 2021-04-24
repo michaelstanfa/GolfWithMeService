@@ -15,5 +15,6 @@ RUN true
 COPY --from=builder application/spring-boot-loader/ ./
 RUN true
 COPY --from=builder application/application/ ./
+COPY --from=builder application/gac.json/ ./
 ENV GOOGLE_APPLICATION_CREDENTIALS gac.json
 ENTRYPOINT ["java", "org.springframework.boot.loader.JarLauncher"]
