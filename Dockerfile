@@ -1,7 +1,7 @@
 FROM adoptopenjdk as builder
 WORKDIR application
 ARG JAR_FILE=target/*.jar
-COPY ${GOOGLE_APPLICATOIN_CREDENTIALS} /
+COPY ${GOOGLE_APPLICATION_CREDENTIALS} /
 COPY ${JAR_FILE} application.jar
 RUN java -Djarmode=layertools -jar application.jar extract
 
