@@ -47,10 +47,10 @@ jobs:
         shell: bash
         run: test -f $GOOGLE_APPLICATION_CREDENTIALS
 
-#      - uses: actions/setup-java@v2
-#        with:
-#          java-version: '11'
-#          distribution: 'adopt'
+      - uses: actions/setup-java@v2
+        with:
+          java-version: '11'
+          distribution: 'adopt'
       - name: Run the Maven Package Phase
         run: mvn clean install -f pom.xml #mvn --batch-mode --update-snapshots verify
 
