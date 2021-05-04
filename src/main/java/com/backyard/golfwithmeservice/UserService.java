@@ -29,7 +29,7 @@ public class UserService {
     private ObjectMapper objectMapper;
 
     @Autowired
-    private Firestore db;
+    private Firestore firestore;
 
     @Autowired
     private UserRepository userRepository;
@@ -50,7 +50,7 @@ public class UserService {
 
     public User addUserViaFirebase(User user) throws ExecutionException, InterruptedException {
 
-        DocumentReference doc = db.collection("users").document();
+        DocumentReference doc = firestore.collection("users").document();
         user.setId(doc.getId());
         ApiFuture<WriteResult> future = doc.set(user);
         return user;
@@ -72,7 +72,7 @@ public class UserService {
 
     public User getUserViaFirebaseWithId(String id) throws ExecutionException, InterruptedException {
 
-        DocumentReference doc = db.collection("users").document(id);
+        DocumentReference doc = firestore.collection("users").document(id);
         ApiFuture<DocumentSnapshot> future = doc.get();
         DocumentSnapshot document = future.get();
         if(document.exists()) {
@@ -85,7 +85,7 @@ public class UserService {
 
     public User getUserViaFirebaseWithUsername(String userName) throws ExecutionException, InterruptedException {
 
-        CollectionReference users = db.collection("users");
+        CollectionReference users = firestore.collection("users");
 
         Query query = users.whereEqualTo("userName", userName);
 
@@ -115,11 +115,11 @@ public class UserService {
                 .forEach(
                     d -> d.getReference().delete()
                 );
-
+t
     }
 
     private List<QueryDocumentSnapshot> getAllUsersFromFb() throws InterruptedException, ExecutionException {
-        return db.collection("users")
+        return firestore.collection("users")
                 .get()
                 .get()
                 .getDocuments();
