@@ -115,7 +115,7 @@ public class UserService {
                 .forEach(
                     d -> d.getReference().delete()
                 );
-t
+
     }
 
     private List<QueryDocumentSnapshot> getAllUsersFromFb() throws InterruptedException, ExecutionException {
